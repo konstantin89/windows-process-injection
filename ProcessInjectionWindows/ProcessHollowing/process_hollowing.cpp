@@ -112,7 +112,8 @@ int injectProc(std::wstring aWstrProcToInject, std::wstring aWstrTargetProc)
 	// Get the PEB address from the ebx register and read the base address of the executable image from the PEB
 	NtReadVirtualMemory(pi.hProcess, (PVOID)(ctx.Ebx + 8), &base, sizeof(PVOID), NULL); 
 
-	// If the original image has same base address as the replacement executable, unmap the original executable from the child process.
+	// If the original image has same base address as the replacement executable,
+	// unmap the original executable from the child process.
 	if ((DWORD)base == pINH->OptionalHeader.ImageBase) 
 	{
 		printf("\nUnmapping original executable image from child process. Address: %#x\n", base);
@@ -162,7 +163,12 @@ int injectProc(std::wstring aWstrProcToInject, std::wstring aWstrTargetProc)
 
 	printf("\nNew entry point: %#x\n", ctx.Eax);
 
-	NtWriteVirtualMemory(pi.hProcess, (PVOID)(ctx.Ebx + 8), &pINH->OptionalHeader.ImageBase, sizeof(PVOID), NULL); // Write the base address of the injected image into the PEB
+	// Write the base address of the injected image into the PEB
+	NtWriteVirtualMemory(pi.hProcess, 
+		                 (PVOID)(ctx.Ebx + 8), 
+		                 &pINH->OptionalHeader.ImageBase, 
+		                 sizeof(PVOID), 
+		                 NULL);
 
 	printf("\nSetting the context of the child process's primary thread.\n");
 
