@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessHollowing", "ProcessHollowing\ProcessHollowing.vcxproj", "{933D998D-38C4-43DE-8F9E-019E4C23D939}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InjectedProc", "InjectedProc\InjectedProc.vcxproj", "{CD2480D2-098F-435B-B015-73BB9B8E6D0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{933D998D-38C4-43DE-8F9E-019E4C23D939}.Release|x64.Build.0 = Release|x64
 		{933D998D-38C4-43DE-8F9E-019E4C23D939}.Release|x86.ActiveCfg = Release|Win32
 		{933D998D-38C4-43DE-8F9E-019E4C23D939}.Release|x86.Build.0 = Release|Win32
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Debug|x64.ActiveCfg = Debug|x64
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Debug|x64.Build.0 = Debug|x64
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Debug|x86.ActiveCfg = Debug|Win32
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Debug|x86.Build.0 = Debug|Win32
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Release|x64.ActiveCfg = Release|x64
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Release|x64.Build.0 = Release|x64
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Release|x86.ActiveCfg = Release|Win32
+		{CD2480D2-098F-435B-B015-73BB9B8E6D0F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
