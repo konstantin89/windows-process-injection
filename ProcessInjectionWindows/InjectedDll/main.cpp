@@ -1,6 +1,12 @@
 #include <windows.h>
 #include <stdio.h>
 
+extern "C" __declspec(dllexport) void message();
+
+void message()
+{
+	MessageBox(0, L"InjectedDLL", L"DLL_PROCESS_ATTACH", MB_OK);
+}
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, // handle to DLL module
 	                DWORD fdwReason,    // reason for calling function
@@ -11,32 +17,23 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, // handle to DLL module
 	{
 		case DLL_PROCESS_ATTACH:
 		{
-
-			printf("Initialize once for each new process...\n");
-			// Initialize once for each new process.
-			// Return FALSE to fail DLL load.
+			printf("InjectedDLL DLL_PROCESS_ATTACH\n");
+			message();
 			break;
 		}
 
 		case DLL_THREAD_ATTACH:
 		{
-			printf("Do thread-specific initialization...\n");
-			// Do thread-specific initialization.
 			break;
 		}
 
 		case DLL_THREAD_DETACH:
 		{
-			printf("Do thread-specific cleanup...\n");
-			// Do thread-specific cleanup.
 			break;
-
 		}
 
 		case DLL_PROCESS_DETACH:
 		{
-			printf("Perform any necessary cleanup...\n");
-			// Perform any necessary cleanup.
 			break;
 		}
 	}

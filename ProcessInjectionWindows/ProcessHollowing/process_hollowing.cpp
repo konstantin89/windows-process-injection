@@ -18,7 +18,7 @@ EXTERN_C NTSTATUS NTAPI NtSetContextThread(HANDLE, PCONTEXT);
 EXTERN_C NTSTATUS NTAPI NtUnmapViewOfSection(HANDLE, PVOID);
 EXTERN_C NTSTATUS NTAPI NtResumeThread(HANDLE, PULONG);
 
-int injectProc(std::wstring aWstrProcToInject, std::wstring aWstrTargetProc)
+int injectProc(LPWSTR aProcToInject, LPWSTR  aTargetProc)
 {
 
 	PIMAGE_DOS_HEADER pIDH;
@@ -38,20 +38,13 @@ int injectProc(std::wstring aWstrProcToInject, std::wstring aWstrTargetProc)
 	memset(&si, 0, sizeof(si));
 	memset(&pi, 0, sizeof(pi));
 
-	wchar_t targetProc[EXEC_PATH_LEN];
-	wchar_t replaceProc[EXEC_PATH_LEN];
-
-	//wcsncpy_s is secure version on wcsncpy.
-	wcsncpy_s(targetProc, EXEC_PATH_LEN, aWstrTargetProc.c_str(), aWstrTargetProc.length());
-	wcsncpy_s(replaceProc, EXEC_PATH_LEN, aWstrProcToInject.c_str(), aWstrProcToInject.length());
-
 	printf("\nRunning the target executable.\n");
 
 	/*
 	* Note that CreateProcess must gen non constant process name (2nd param).
-	* For this reason, define targetProc as wchar_t array.
+	* For this reason, define aTargetProc as wchar_t array.
 	*/
-	if (!CreateProcess(NULL, targetProc, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, &pi)) // Start the target application
+	if (!CreateProcess(NULL, aTargetProc, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, &pi)) // Start the target application
 	{
 		printf("\nError: Unable to run the target executable. CreateProcess failed with error %d\n", GetLastError());
 		return GetLastError();
@@ -61,7 +54,7 @@ int injectProc(std::wstring aWstrProcToInject, std::wstring aWstrTargetProc)
 	printf("\nOpening the replacement executable.\n");
 
 	// Open the replacement executable
-	hFile = CreateFile(replaceProc, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
+	hFile = CreateFile(aProcToInject, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
 
 	if (hFile == INVALID_HANDLE_VALUE)
 	{

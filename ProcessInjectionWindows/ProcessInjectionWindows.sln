@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "APCInjection", "APCInjectio
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InjectedDll", "InjectedDll\InjectedDll.vcxproj", "{122447C8-6603-467C-8BA3-3BEE6787E295}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SleepingProc", "SleepingProc\SleepingProc.vcxproj", "{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{122447C8-6603-467C-8BA3-3BEE6787E295}.Release|x64.Build.0 = Release|x64
 		{122447C8-6603-467C-8BA3-3BEE6787E295}.Release|x86.ActiveCfg = Release|Win32
 		{122447C8-6603-467C-8BA3-3BEE6787E295}.Release|x86.Build.0 = Release|Win32
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Debug|x64.ActiveCfg = Debug|x64
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Debug|x64.Build.0 = Debug|x64
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Debug|x86.ActiveCfg = Debug|Win32
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Debug|x86.Build.0 = Debug|Win32
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Release|x64.ActiveCfg = Release|x64
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Release|x64.Build.0 = Release|x64
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Release|x86.ActiveCfg = Release|Win32
+		{6493F5D6-2E4B-4CF5-BF11-090FECBF504D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
